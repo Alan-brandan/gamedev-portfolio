@@ -3,6 +3,8 @@ import { Home } from './Components/Home'
 import { Footer } from './Components/Footer'
 import { Gallery } from './Components/Gallery'
 import { About } from './Components/About'
+import { Skills } from './Components/Skills'
+
 import styled, { createGlobalStyle, css } from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -88,6 +90,30 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+body{
+  overflow-x: hidden;
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #282c34;
+  color: rgb(0, 0, 0) !important;
+}
+h1,h2,h3,h4,h5,h6{
+  margin:0;
+  padding: 0;
+  line-height: normal;
+}
+
 `;
 
 const GlobalStyles = createGlobalStyle`
@@ -108,7 +134,12 @@ function App() {
                 <Gallery></Gallery>
               </>
             } />
-            <Route path="/about" element={<About></About>} />
+            <Route path="/about" element={
+              <>
+                <About></About>
+                <Skills></Skills>
+              </>
+            } />
           </Routes>
           <Footer></Footer>
         </Router>

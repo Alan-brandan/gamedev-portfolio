@@ -6,7 +6,7 @@ const NavbarContainer = styled.div<{ hasscrolled: boolean }>`
 position: fixed;
 top: 0;
 left: 0;
-height: 57px;
+height: 50px;
 width: 100%;
 z-index: 900;
 background-color: ${(props) => (props.hasscrolled ? '#f0f0f0' : '#fa0808')};
@@ -44,16 +44,18 @@ export const Navbar = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  
+
 
   return (
     <NavbarContainer hasscrolled={scrolled} >
       <NavbarElements>
-        <h3>Alan Brandan</h3>
+        <a href="/">
+          <h3>Alan Brandan</h3>
+        </a>
         <NavbarSections>
-          <a className={"navbar_section"}
+          <a className={"navbar_section"} href="/"
           ><h2>Projects</h2></a>
-          <a className={"navbar_section"}
+          <a className={"navbar_section"} href="/about"
           ><h2>About</h2></a>
         </NavbarSections>
         <div className="lang_toggle">

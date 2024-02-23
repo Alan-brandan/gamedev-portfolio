@@ -15,9 +15,6 @@ export const Home = () => {
                 <p>Hi, my name is</p>
                 <h1>Alan Brandan</h1>
             </div>
-            <div className='home_items'>
-                <div className='scroll_icon'><span></span></div>
-            </div>
         </HomeContainer>
     )
 }
