@@ -50,19 +50,11 @@ export const Navbar = () => {
     <NavbarContainer hasscrolled={scrolled} >
       <NavbarElements>
         <h3>Alan Brandan</h3>
-        <input type="checkbox" className="navmenu-togle" id="navmenu-togle" />
-        <label htmlFor="navmenu-togle" className="navmenu-togle-label">
-          <div className="navmenutogle-clickarea">
-            <span></span>
-          </div>
-        </label>
         <NavbarSections>
-          <a className={"navbar_section"}
-          ><h2>About</h2></a>
           <a className={"navbar_section"}
           ><h2>Projects</h2></a>
           <a className={"navbar_section"}
-          ><h2>Contact</h2></a>
+          ><h2>About</h2></a>
         </NavbarSections>
         <div className="lang_toggle">
           <input type="checkbox" className="language_checkbox" />

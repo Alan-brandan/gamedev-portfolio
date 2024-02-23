@@ -1,6 +1,15 @@
 import { Navbar } from './Components/Navbar'
 import { Home } from './Components/Home'
-import styled,{ createGlobalStyle, css } from 'styled-components';
+import { Footer } from './Components/Footer'
+import { Gallery } from './Components/Gallery'
+import { About } from './Components/About'
+import styled, { createGlobalStyle, css } from 'styled-components';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Fragment } from 'react'
 
 const AppContainer = styled.div`
   max-width: 1280px;
@@ -90,8 +99,19 @@ function App() {
     <>
       <GlobalStyles />
       <AppContainer>
-        <Navbar></Navbar>
-        <Home></Home>
+        <Router>
+          <Navbar></Navbar>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Home></Home>
+                <Gallery></Gallery>
+              </>
+            } />
+            <Route path="/about" element={<About></About>} />
+          </Routes>
+          <Footer></Footer>
+        </Router>
       </AppContainer>
     </>
   );
