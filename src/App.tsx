@@ -1,7 +1,7 @@
 import { Navbar } from './Components/Navbar'
 import { Home } from './Components/Home'
 import { Footer } from './Components/Footer'
-import { Gallery } from './Components/Gallery'
+import { FeaturedGallery } from './Components/FeaturedGallery'
 import { About } from './Components/About'
 import { Skills } from './Components/Skills'
 
@@ -14,9 +14,8 @@ import {
 import { Fragment } from 'react'
 
 const AppContainer = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  padding: 4rem 0;
   text-align: center;
 `;
 const ResetStyles = css`
@@ -48,10 +47,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
 h1 {
@@ -99,6 +98,8 @@ button:focus-visible {
 html{
   scroll-behavior: smooth;
   scroll-padding-top: 75px;
+  width: 100%;
+
 }
 body{
   overflow-x: hidden;
@@ -107,6 +108,7 @@ body{
   position: relative;
   background-color: #282c34;
   color: rgb(0, 0, 0) !important;
+  width: 100%;
 }
 h1,h2,h3,h4,h5,h6{
   margin:0;
@@ -131,7 +133,7 @@ function App() {
             <Route path="/" element={
               <>
                 <Home></Home>
-                <Gallery></Gallery>
+                <FeaturedGallery></FeaturedGallery>
               </>
             } />
             <Route path="/about" element={

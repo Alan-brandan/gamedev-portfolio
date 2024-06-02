@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 const FooterContainer = styled.div`
     display: flex;
     justify-content: center; 
-    position: fixed;
+    position: absolute ;
 
     padding-top: 8px;
     bottom: 0;

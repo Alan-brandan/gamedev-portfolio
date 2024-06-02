@@ -1,20 +1,42 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
+
+
 const HomeContainer = styled.div`
-    background-color: #242327;
-    height: 120%;
-    padding: 35% 0 30rem 0;
-    margin-bottom: 50em;
+    background-color: #a3f89b73;
+    margin-bottom: 15rem;
+    display: flex;
+    justify-content: center;
+`;
+
+const Intro = styled.div`
+    background-color: #af342f;
+    display: flex;
+    flex-direction: column;
+
+    p{
+        font-size: 2rem;
+    }
+`;
+
+const IntroVisuals = styled.div`
+    background-color: #7a57e6;
+
 `;
 
 export const Home = () => {
     return (
         <HomeContainer >
-            <div className='home_data'>
+            <Intro>
                 <p>Hi, my name is</p>
                 <h1>Alan Brandan</h1>
-            </div>
+            </Intro>
+
+            <IntroVisuals>
+                <img src="https://avatars.githubusercontent.com/u/89269793?v=4" alt="" />
+            </IntroVisuals>
+
         </HomeContainer>
     )
 }
