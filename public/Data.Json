@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "title": "proj1",
+        "tech": ["React", "Framer Motion"],
+        "studio": "Clinic of Hope",
+        "date": "2023",
+        "overview": "First iteration of my Personal portfolio, a dynamic canvas created with the purpose of presenting a curated selection of my latest projects and to reflect my growth and passion for design and development.",
+        "contributions": "First iteration of my Personal portfolio, a dynamic canvas created with the purpose of presenting a curated selection of my latest projects and to reflect my growth and passion for design and development.",
+        "team size": "8",
+        "genre": "2d platformer",
+        "images": ["../../assets/img/project1.png", "../../assets/img/project2.png", "../../assets/img/project2.png"],
+        "role": "game developer",
+        "link": "https://github.com/Alan-brandan/personal-portfolio",
+        "icon": "https://styles.redditmedia.com/t5_2rk5q/styles/communityIcon_s8h0mrftpnn31.png?width=48&height=48&frame=1&auto=webp&crop=48:48,smart&s=3a8aa6182aa9bb97887923b4f9a3c1c2d3ecb5d3"
+    },
+    {
+        "id": 2,
+        "category": "proj2",
+        "title": "proj2",
+        "tech": ["React", "Framer Motion"],
+        "date": "2023",
+        "desc": "First itejhgjhgand to reflect my growth and passion for design and development.",
+        "background": "../../assets/img/project1.png",
+        "images": ["../../assets/img/project1.png", "../../assets/img/project2.png", "../../assets/img/project2.png"],
+        "link": "/",
+        "repo": "https://github.com/Alan-brandan/personal-portfolio",
+        "icon": "https://styles.redditmedia.com/t5_12967t/styles/communityIcon_rh7ocpigb9t51.png?width=48&height=48&frame=1&auto=webp&crop=48:48,smart&s=3d5cd3f87e06c06fd0d8fb924e44114a7f245686"
+    },
+    {
+        "id": 3,
+        "category": "proj3",
+        "title": "proj3",
+        "tech": ["React", "Framer Motion"],
+        "date": "2023",
+        "desc": "First itejhgjhgand to reflect my growth and passion for design and development.",
+        "background": "../../assets/img/project1.png",
+        "images": ["../../assets/img/project1.png", "../../assets/img/project2.png", "../../assets/img/project2.png"],
+        "link": "/",
+        "repo": "https://github.com/Alan-brandan/personal-portfolio",
+        "icon": "https://styles.redditmedia.com/t5_2qlht/styles/communityIcon_nf1a1pdmwux51.png?width=48&height=48&frame=1&auto=webp&crop=48:48,smart&s=4cea72b1b2c84517bc5073250ce63a64c86a1c0d"
+    }
+]

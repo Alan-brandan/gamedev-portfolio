@@ -5,7 +5,7 @@ const Item = styled.div`
     display: flex;
     justify-content: center; 
     background-color: #49b0cf;
-
+    margin: 0 9%;
     padding: 5rem 0;
 
     h3{
@@ -29,7 +29,12 @@ const ProjectData = styled.div`
 
 `;
 
-export const FeaturedItem = () => {
+interface FeaturedItemProps {
+  title: string;
+  description: string;
+}
+
+export const FeaturedItem:React.FC<FeaturedItemProps> = ({ title, description }) => {
   return (
     <Item>
       <Visuals>
@@ -37,11 +42,11 @@ export const FeaturedItem = () => {
       </Visuals>
 
       <ProjectData>
-        <h3>Title</h3>
+        <h3>{title}</h3>
         <div>
           <p>Information</p>
         </div>
-        <p>Description</p>
+        <p>{description}</p>
       </ProjectData>
     </Item>
   )
