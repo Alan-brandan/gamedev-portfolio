@@ -12,18 +12,6 @@ const Item = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   height: 75vh;
-
-  h3 {
-    color: rgb(226, 17, 17);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: #c26c6d;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
 `;
 
 const Visuals = styled.div`
@@ -31,7 +19,6 @@ const Visuals = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #49cf50;
 
   img {
     max-width: 100%;
@@ -44,62 +31,77 @@ const ProjectData = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  background-color: #e7c59e;
+  text-align: left;
+  background-color: #769cbd;
+  margin: 0 1rem 0 2.7rem;
   overflow-y: auto;
   max-height: 100%;
 
-  &::-webkit-scrollbar {
-    width: 10px;
+  h3{
+    font-size: 2.5rem;
   }
 
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #c26c6d;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #a54d4d;
+  span{
+    font-size: 1.5rem;
+    font-weight: 500;
   }
 `;
 
 const InfoSection = styled.div`
-  background-color: #e79ed1;
   margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 10px;
 
   p {
     font-weight: bold;
+    margin: 0;
   }
+`;
+
+const PlatformSection = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+  p {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
+  a {
+    color: #333;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+const RoleTag = styled.span`
+  background-color: #c26c6d;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 25px;
+  margin-right: 0.5rem;
 `;
 
 interface FeaturedItemProps {
   title: string;
-  tech?: string[];
   date?: string;
-  studio?: string;
-  teamsize?: string;
-  platform?: string;
-  genre?: string;
-  role?: string;
+  platform?: string[];
+  role?: string[];
   description: string;
-  contributions?: string;
+  contributions?: string[];
   images: string[];
-  link?: string;
+  link?: string[];
 }
 
 export const FeaturedItem: React.FC<FeaturedItemProps> = ({
   title,
   description,
-  tech,
   date,
-  studio,
-  teamsize,
   platform,
-  genre,
   role,
   contributions,
   images,
@@ -112,19 +114,32 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
       </Visuals>
 
       <ProjectData>
-        <h3>{title}</h3>
+        <h3>{title} {date && <span>({date})</span>}</h3>
         <InfoSection>
-          {tech && <p>Tech: {tech.join(', ')}</p>}
-          {date && <p>Date: {date}</p>}
-          {studio && <p>Studio: {studio}</p>}
-          {teamsize && <p>Team Size: {teamsize}</p>}
-          {platform && <p>Platform: {platform}</p>}
-          {genre && <p>Genre: {genre}</p>}
-          {role && <p>Role: {role}</p>}
+        {platform && (
+            <PlatformSection>
+              {platform.map((platformItem, index) => (
+                <a key={index} href={link && link[index]}>{platformItem}</a>
+              ))}
+            </PlatformSection>
+          )}
+
+          {role && (
+              <div>
+                {role.map((r, index) => (
+                  <RoleTag key={index}>{r}</RoleTag>
+                ))}
+              </div>
+          )}
         </InfoSection>
         <p>{description}</p>
-        {contributions && <p>{contributions}</p>}
-        {link && <a href={link}>Learn more</a>}
+        {contributions && (
+          <ul>
+            {contributions.map((contribution, index) => (
+              <li key={index}> {contribution}</li>
+            ))}
+          </ul>
+        )}
       </ProjectData>
     </Item>
   );

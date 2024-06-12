@@ -32,8 +32,8 @@ const IndicatorsContainer = styled.ul`
 `;
 
 const Indicator = styled.li<{ isSelected: boolean }>`
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   display: inline-block;
   margin: 0 8px;
   list-style: none;
@@ -43,12 +43,22 @@ const Indicator = styled.li<{ isSelected: boolean }>`
   background-color: ${props => (props.isSelected ? '#fff' : '#ccc')};
   box-shadow: ${props => (props.isSelected ? '0 0 5px #707070' : 'none')};
   opacity: ${props => (props.isSelected ? '1' : '0.6')};
-  transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, border 0.3s;
+
+  transform: ${props => (props.isSelected ? 'scale(1.2)' : 'scale(1)')};
+
+  transition: 
+    background-color 0.3s, 
+    box-shadow 0.3s, 
+    opacity 0.3s, 
+    border 0.3s,
+    transform 0.3s;
 
   img {
     width: 100%;
     height: 100%;
     border-radius: 30%;
+    filter: grayscale(${props => (props.isSelected ? '0%' : '100%')});
+    transition: filter 0.3s;
   }
 
   &:focus {
@@ -57,23 +67,24 @@ const Indicator = styled.li<{ isSelected: boolean }>`
 
   &:hover {
     opacity: 1;
+    transform: translateY(-15px) scale(1.2);
+  }
+
+  ${IndicatorsContainer}:hover & {
+    filter: grayscale(100%);
   }
 `;
 
 interface Project {
   id: number;
   title: string;
-  tech: string[];
   date: string;
-  studio: string;
-  teamsize: string;
-  platform: string;
-  genre: string;
-  role: string;
+  platform: string[];
+  role: string[];
   description: string;
-  contributions: string;
+  contributions: string[];
   images: string[];
-  link: string;
+  link: string[];
   icon: string;
 }
 
@@ -90,6 +101,7 @@ export const FeaturedGallery: React.FC = () => {
           desc: item.desc
         }));
         setProjects(transformedData);
+        setSelectedIndex(0);
       })
       .catch(error => console.error('Error fetching the projects:', error));
   }, []);
@@ -116,12 +128,8 @@ export const FeaturedGallery: React.FC = () => {
               key={project.id}
               title={project.title}
               description={project.description}
-              tech={project.tech}
               date={project.date}
-              studio={project.studio}
-              teamsize={project.teamsize}
               platform={project.platform}
-              genre={project.genre}
               role={project.role}
               contributions={project.contributions}
               images={project.images}

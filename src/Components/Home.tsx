@@ -4,25 +4,51 @@ import styled, { css } from 'styled-components'
 
 
 const HomeContainer = styled.div`
-    background-color: #a3f89b73;
-    margin-bottom: 15rem;
-    display: flex;
-    justify-content: center;
+  background-color: #a3f89b73;
+  margin-bottom: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  flex-wrap: wrap;
 `;
 
 const Intro = styled.div`
-    background-color: #af342f;
-    display: flex;
-    flex-direction: column;
+  background-color: #af342f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 1rem;
+  text-align: center;
+  color: #fff;
 
-    p{
-        font-size: 2rem;
-    }
+  p {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  h1 {
+    margin: 1rem 0 0;
+    font-size: 3rem;
+  }
 `;
 
 const IntroVisuals = styled.div`
-    background-color: #7a57e6;
+  background-color: #7a57e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 1rem;
 
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
 `;
 
 export const Home = () => {

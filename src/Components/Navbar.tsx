@@ -3,34 +3,57 @@ import styled, { css } from 'styled-components'
 
 
 const NavbarContainer = styled.div<{ hasscrolled: boolean }>`
-position: fixed;
-top: 0;
-left: 0;
-height: ${(props) => (props.hasscrolled ? '42px' : '57px')};
-width: 100%;
-z-index: 900;
-background-color: ${(props) => (props.hasscrolled ? '#f7d2d2' : '#fa0808')};
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: ${(props) => (props.hasscrolled ? '42px' : '57px')};
+  width: 100%;
+  z-index: 900;
+  background-color: ${(props) => (props.hasscrolled ? '#2e2d2d' : '#252525')};
+  transition: height 0.3s ease, background-color 0.3s ease;
+  box-shadow: ${(props) => (props.hasscrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none')};
 `;
 
 const NavbarElements = styled.div<{ hasscrolled: boolean }>`
-display: flex;
-justify-content: space-between;
-width: 65%;
-transition: 0.4s ease-in-out;
-margin: ${(props) => (props.hasscrolled ? '5px auto 0 auto' : '13px auto 0 auto')};
-background-color: #a1ee8e;
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  transition: margin 0.4s ease-in-out;
+  margin: ${(props) => (props.hasscrolled ? '5px auto 0 auto' : '13px auto 0 auto')};
+  align-items: center;
 `;
 
 const NavbarSectionsContainer = styled.div`
-display: flex;
-justify-content: end;
-width: 70%;
-background-color: #6896ec;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
 `;
 
 const NavbarSection = styled.div`
-background-color: #1cd3ca;
-margin-left: 15px;
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      color: #ddd;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+`;
+
+const Brand = styled.a`
+  color: #fff;
+  text-decoration: none;
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
 `;
 
 export const Navbar = () => {
@@ -51,22 +74,19 @@ export const Navbar = () => {
   return (
     <NavbarContainer hasscrolled={scrolled} >
       <NavbarElements hasscrolled={scrolled}>
-        <a href="/">
+        <Brand href="/">
           <h3>Alan Brandan</h3>
-        </a>
+        </Brand>
         <NavbarSectionsContainer>
           <NavbarSection>
             <a className={"navbar_section"} href="/"
-            ><h2>Projects</h2></a>
+            >Projects</a>
           </NavbarSection>
           <NavbarSection>
             <a className={"navbar_section"} href="/about"
-            ><h2>About</h2></a>
+            >About</a>
           </NavbarSection>
         </NavbarSectionsContainer>
-        <div className="lang_toggle">
-          <input type="checkbox" className="language_checkbox" />
-        </div>
       </NavbarElements>
     </NavbarContainer>
   )
