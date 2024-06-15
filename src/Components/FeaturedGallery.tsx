@@ -43,7 +43,6 @@ const Indicator = styled.li<{ isSelected: boolean }>`
   background-color: ${props => (props.isSelected ? '#fff' : '#ccc')};
   box-shadow: ${props => (props.isSelected ? '0 0 5px #707070' : 'none')};
   opacity: ${props => (props.isSelected ? '1' : '0.6')};
-
   transform: ${props => (props.isSelected ? 'scale(1.2)' : 'scale(1)')};
 
   transition: 
@@ -66,12 +65,15 @@ const Indicator = styled.li<{ isSelected: boolean }>`
   }
 
   &:hover {
+    background-color: #fff;
+    border: 2px solid #707070;
+    box-shadow: 0 0 5px #707070;
     opacity: 1;
     transform: translateY(-15px) scale(1.2);
-  }
 
-  ${IndicatorsContainer}:hover & {
-    filter: grayscale(100%);
+    img {
+      filter: grayscale(0%);
+    }
   }
 `;
 
@@ -148,8 +150,8 @@ export const FeaturedGallery: React.FC = () => {
               aria-label={`Indicator ${index + 1}`}
               title={`Indicator ${index + 1}`}
             >
-              <img src={project.icon} alt={`Indicator ${index + 1}`} />
-            </Indicator>
+              <img src={project.icon} alt={`Indicator ${index + 1}`} draggable="false" />
+              </Indicator>
           ))}
         </IndicatorsContainer>
       </CarouselWrapper>

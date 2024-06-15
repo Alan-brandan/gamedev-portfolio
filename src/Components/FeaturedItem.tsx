@@ -37,6 +37,10 @@ const ProjectData = styled.div`
   overflow-y: auto;
   max-height: 100%;
 
+
+`;
+
+const ProjectTitle = styled.div`
   h3{
     font-size: 2.5rem;
   }
@@ -55,6 +59,18 @@ const InfoSection = styled.div`
   p {
     font-weight: bold;
     margin: 0;
+  }
+`;
+
+const Description = styled.div`
+  span{
+    font-weight: 500;
+  }
+
+  ul {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
   }
 `;
 
@@ -107,6 +123,18 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
   images,
   link,
 }) => {
+  const renderDescription = (text: string) => {
+    const parts = text.split('*').map((part, index) => {
+      if (index % 2 === 1) {
+        return <span key={index}>{part}</span>;
+      } else {
+        return part;
+      }
+    });
+
+    return <p>{parts}</p>;
+  };
+
   return (
     <Item>
       <Visuals>
@@ -114,32 +142,41 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
       </Visuals>
 
       <ProjectData>
-        <h3>{title} {date && <span>({date})</span>}</h3>
+        <ProjectTitle>
+          <h3>
+            {title} {date && <span>({date})</span>}
+          </h3>
+        </ProjectTitle>
         <InfoSection>
-        {platform && (
+          {platform && (
             <PlatformSection>
               {platform.map((platformItem, index) => (
-                <a key={index} href={link && link[index]}>{platformItem}</a>
+                <a key={index} href={link && link[index]}>
+                  {platformItem}
+                </a>
               ))}
             </PlatformSection>
           )}
 
           {role && (
-              <div>
-                {role.map((r, index) => (
-                  <RoleTag key={index}>{r}</RoleTag>
-                ))}
-              </div>
+            <div>
+              {role.map((r, index) => (
+                <RoleTag key={index}>{r}</RoleTag>
+              ))}
+            </div>
           )}
         </InfoSection>
-        <p>{description}</p>
-        {contributions && (
-          <ul>
-            {contributions.map((contribution, index) => (
-              <li key={index}> {contribution}</li>
-            ))}
-          </ul>
-        )}
+        <Description>
+          {renderDescription(description)}
+
+          {contributions && (
+            <ul>
+              {contributions.map((contribution, index) => (
+                <li key={index}> • {contribution}</li>
+              ))}
+            </ul>
+          )}
+        </Description>
       </ProjectData>
     </Item>
   );
