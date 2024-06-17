@@ -5,11 +5,10 @@ const Item = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: #49b0cf;
+
+
   margin: 0 9%;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   height: 75vh;
 `;
@@ -32,22 +31,21 @@ const ProjectData = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  background-color: #769cbd;
   margin: 0 1rem 0 2.7rem;
   overflow-y: auto;
   max-height: 100%;
-
-
 `;
 
 const ProjectTitle = styled.div`
   h3{
     font-size: 2.5rem;
+    color: white;
   }
 
   span{
     font-size: 1.5rem;
     font-weight: 500;
+    color: #b4b4b4;
   }
 `;
 
@@ -59,18 +57,44 @@ const InfoSection = styled.div`
   p {
     font-weight: bold;
     margin: 0;
+
   }
 `;
 
 const Description = styled.div`
+  
+  p{
+    color: white;
+    font-size: 1.1rem;
+  }
   span{
-    font-weight: 500;
+    color: white;
+    font-weight: 550;
+  }
+`;
+
+const Contributions = styled.div`
+  span {
+    display: block;
+    margin-top: 2rem;
   }
 
   ul {
-    list-style: none;
-    margin-top: 1rem;
-    padding-left: 1.5rem;
+    list-style: disc;
+    margin-left: 2rem;
+  }
+
+  li {
+    color: white;
+    font-size: 1.1rem;
+
+  }
+
+  .nested-ul {
+    list-style: circle;
+    margin-left: 2rem;
+    color: white;
+    font-size: 1rem;
   }
 `;
 
@@ -82,10 +106,11 @@ const PlatformSection = styled.div`
   p {
     font-weight: bold;
     margin-right: 0.5rem;
+
   }
 
   a {
-    color: #333;
+    color: white;
     text-decoration: none;
     margin-right: 0.5rem;
     &:hover {
@@ -124,15 +149,17 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
   link,
 }) => {
   const renderDescription = (text: string) => {
-    const parts = text.split('*').map((part, index) => {
-      if (index % 2 === 1) {
-        return <span key={index}>{part}</span>;
-      } else {
-        return part;
-      }
-    });
-
-    return <p>{parts}</p>;
+    return text.split('\n').map((line, index) => (
+      <p key={index}>
+        {line.split('*').map((part, partIndex) => {
+          if (partIndex % 2 === 1) {
+            return <span key={partIndex}>{part}</span>;
+          } else {
+            return part;
+          }
+        })}
+      </p>
+    ));
   };
 
   return (
@@ -170,11 +197,26 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
           {renderDescription(description)}
 
           {contributions && (
-            <ul>
-              {contributions.map((contribution, index) => (
-                <li key={index}> • {contribution}</li>
-              ))}
-            </ul>
+            <Contributions>
+              <span>My Contributions</span>
+              <ul>
+                {contributions.map((contribution, index) => {
+                  const parts = contribution.split('•');
+                  return (
+                    <li key={index}>
+                      {parts[0]}
+                      {parts.length > 1 && (
+                        <ul className="nested-ul">
+                          {parts.slice(1).map((part, subIndex) => (
+                            <li key={subIndex}>{part.trim()}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </Contributions>
           )}
         </Description>
       </ProjectData>

@@ -5,11 +5,10 @@ import styled, { css } from 'styled-components'
 
 const HomeContainer = styled.div`
   background-color: #a3f89b73;
-  margin-bottom: 15rem;
+  margin: 2rem 0 15rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
   flex-wrap: wrap;
 `;
 

@@ -11,7 +11,28 @@ const ProjectGallery = styled.div`
   width: 100%;
   padding: 0;
   margin: 0;
+  position: relative;
   background-color: #82a325;
+  background-image: url("https://b.l3n.co/i/6f17we.gif");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  position: relative;
+  z-index: 2;
 `;
 
 const CarouselWrapper = styled.div`
@@ -20,7 +41,7 @@ const CarouselWrapper = styled.div`
 `;
 
 const CustomCarousel = styled(Carousel)`
-margin-bottom: -25px;
+  margin-bottom: -25px;
 `;
 
 const IndicatorsContainer = styled.ul`
@@ -28,7 +49,7 @@ const IndicatorsContainer = styled.ul`
   justify-content: center;
   margin: 0;
   padding: 0;
-  background-color: #328bda;
+  z-index: 2; 
 `;
 
 const Indicator = styled.li<{ isSelected: boolean }>`
@@ -42,7 +63,7 @@ const Indicator = styled.li<{ isSelected: boolean }>`
   border-radius: 30%;
   background-color: ${props => (props.isSelected ? '#fff' : '#ccc')};
   box-shadow: ${props => (props.isSelected ? '0 0 5px #707070' : 'none')};
-  opacity: ${props => (props.isSelected ? '1' : '0.6')};
+  opacity: ${props => (props.isSelected ? '1' : '0.7')};
   transform: ${props => (props.isSelected ? 'scale(1.2)' : 'scale(1)')};
 
   transition: 
@@ -103,10 +124,15 @@ export const FeaturedGallery: React.FC = () => {
           desc: item.desc
         }));
         setProjects(transformedData);
-        setSelectedIndex(0);
       })
       .catch(error => console.error('Error fetching the projects:', error));
   }, []);
+
+  useEffect(() => {
+    if (projects.length > 0) {
+      setSelectedIndex(0);
+    }
+  }, [projects]);
 
   const handleIndicatorClick = (index: number) => {
     setSelectedIndex(index);
@@ -114,47 +140,53 @@ export const FeaturedGallery: React.FC = () => {
 
   return (
     <ProjectGallery>
-      <h2>Featured Projects</h2>
-      <CarouselWrapper>
-        <CustomCarousel
-          showArrows={true}
-          swipeable={true}
-          showStatus={false}
-          infiniteLoop={true}
-          showIndicators={false}
-          selectedItem={selectedIndex}
-          onChange={(index) => setSelectedIndex(index)}
-        >
-          {projects.map((project) => (
-            <FeaturedItem
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              date={project.date}
-              platform={project.platform}
-              role={project.role}
-              contributions={project.contributions}
-              images={project.images}
-              link={project.link}
-            />
-          ))}
-        </CustomCarousel>
-        <IndicatorsContainer>
-          {projects.map((project, index) => (
-            <Indicator
-              key={index}
-              isSelected={selectedIndex === index}
-              onClick={() => handleIndicatorClick(index)}
-              role="button"
-              tabIndex={0}
-              aria-label={`Indicator ${index + 1}`}
-              title={`Indicator ${index + 1}`}
-            >
-              <img src={project.icon} alt={`Indicator ${index + 1}`} draggable="false" />
-              </Indicator>
-          ))}
-        </IndicatorsContainer>
-      </CarouselWrapper>
+      <ContentWrapper>
+        <h2>Featured Projects</h2>
+        <CarouselWrapper>
+          {projects.length > 0 && (
+            <>
+              <CustomCarousel
+                showArrows={true}
+                swipeable={true}
+                showStatus={false}
+                infiniteLoop={true}
+                showIndicators={false}
+                selectedItem={selectedIndex}
+                onChange={(index) => setSelectedIndex(index)}
+              >
+                {projects.map((project) => (
+                  <FeaturedItem
+                    key={project.id}
+                    title={project.title}
+                    description={project.description}
+                    date={project.date}
+                    platform={project.platform}
+                    role={project.role}
+                    contributions={project.contributions}
+                    images={project.images}
+                    link={project.link}
+                  />
+                ))}
+              </CustomCarousel>
+              <IndicatorsContainer>
+                {projects.map((project, index) => (
+                  <Indicator
+                    key={index}
+                    isSelected={selectedIndex === index}
+                    onClick={() => handleIndicatorClick(index)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Indicator ${index + 1}`}
+                    title={`Indicator ${index + 1}`}
+                  >
+                    <img src={project.icon} alt={`Indicator ${index + 1}`} draggable="false" />
+                  </Indicator>
+                ))}
+              </IndicatorsContainer>
+            </>
+          )}
+        </CarouselWrapper>
+      </ContentWrapper>
     </ProjectGallery>
   );
 };
