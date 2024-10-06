@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FeaturedItemGallery } from './FeaturedItemGallery';
 
 const Item = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ const Visuals = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 4rem 0 0 0;
 
   img {
     max-width: 100%;
@@ -71,6 +73,10 @@ const Description = styled.div`
     color: white;
     font-weight: 550;
   }
+
+  /* Ensure this section scrolls if necessary */
+  max-height: 50vh;
+  overflow-y: auto;
 `;
 
 const Contributions = styled.div`
@@ -87,6 +93,7 @@ const Contributions = styled.div`
   li {
     color: white;
     font-size: 1.1rem;
+    margin: 5px 0 10px 0;
 
   }
 
@@ -164,10 +171,7 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
 
   return (
     <Item>
-      <Visuals>
-        <img src={images[0]} alt={title} />
-      </Visuals>
-
+     <FeaturedItemGallery images={images}/>
       <ProjectData>
         <ProjectTitle>
           <h3>
@@ -198,7 +202,7 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
 
           {contributions && (
             <Contributions>
-              <span>My Contributions</span>
+              <span>Key Contributions</span>
               <ul>
                 {contributions.map((contribution, index) => {
                   const parts = contribution.split('•');

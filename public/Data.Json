@@ -6,20 +6,24 @@
         "platform": ["Android", "Ios"],
         "link": ["https://play.google.com/store/apps/details?id=com.ClinicofHope.Think&hl=es_GT", "https://apps.apple.com/us/app/think-a-learning-game/id6443926053"],
         "role": ["Gameplay Programmer", "Level Designer", "Game Tester"],
-        "description": "Think is a *2D platformer* made by *The Clinic of Hope* for mobile devices.\nThe game is primarily aimed at children, helping them to develop their problem-solving skills through engaging gameplay.",
-        "contributions": ["Designed over 30 Levels, each with unique challenges and themes •A •B","Designed and implemented a variety of Game modes to keep the gamepolay diverse","Creation of visual effects","Contributed 2D Art (Tilesets, Assets)"],
-        "images": ["https://styles.redditmedia.com/t5_2r2vr/styles/communityIcon_g6abp2b4q6b41.jpg?width=96&height=96&frame=1&auto=webp&crop=96:96,smart&s=727f848359808f2a257c6719d259d3c5d67f2b68", ""],
-        "icon": "https://styles.redditmedia.com/t5_2rk5q/styles/communityIcon_s8h0mrftpnn31.png?width=48&height=48&frame=1&auto=webp&crop=48:48,smart&s=3a8aa6182aa9bb97887923b4f9a3c1c2d3ecb5d3"
+        "description": "Think is a *2D platformer* made by *The Clinic of Hope* for mobile devices.\nThe game is aimed at enhancing children's problem-solving skills through engaging gameplay.",
+        "contributions": ["Designed over 40 Levels, each featuring unique challenges and themes.",
+        "Conceptualized and implemented various game modes to enhance gameplay diversity:• Lights Off: Navigate levels in darkness while collecting energy to power a flashlight, implemented lighting mechanics and energy management systems to create a tense, immersive experience.•Endless Runner: an infinite mode by utilizing Unity Addressables to dynamically load and combine randomized segments from story levels, providing endless replayability.•Survivor: Survive waves of enemies, collecting temporary power-ups.•Speed Run: a time-limited speedrun event with a Firebase-backed leaderboard system to track and reward top player performances.",
+        "Designed and implemented a persistent high-score system across all game modes, with Firebase cloud saves to track and compare scores.",
+        "Created dynamic visual effects using Unity’s Particle System",
+        "Contributed to 2D art: designed Tilesets, Enemy sprites and UI assets",
+        "Implemented a Character Upgrade System allowing players to enhance attributes (e.g., speed, invincibility) via in-game currency.",
+        "Refactored and optimized core gameplay scripts to improve performance, reduce load times, and enhance game responsiveness.",
+    "Introduced new animations for the Menu UI to avoid static screens and make the interface more interactive."],
+        "images": ["https://lh3.googleusercontent.com/d/12ER685ExqcoOGDJKzXsRMFx-9hLDlXFq", "https://lh3.googleusercontent.com/d/1rQlBSQvzvheq6mntK5-CtEftgSCC-CMu"],
+        "icon": "https://lh3.googleusercontent.com/d/1akFMtnrsYYpsunDK2fVXdMDCbH2NtEza"
     },
     {
         "id": 2,
-        "title": "proj2",
-        "date": "TBA",
-        "platform": ["Android"],
+        "title": "Assets Made",
         "link": ["/"],
-        "role": ["Game Programmer"],
-        "description": "First iteration of my Personal portfolio, a dynamic canvas created with the purpose of presenting a curated selection of my latest projects and to reflect my growth and passion for design and development.",
+        "description": "Some of the Assets I made for Unity",
         "images": ["https://user-images.githubusercontent.com/10498744/210012254-234538ff-d198-48aa-8964-37e6fd45d227.gif"],
-        "icon": "https://styles.redditmedia.com/t5_2qlht/styles/communityIcon_nf1a1pdmwux51.png?width=48&height=48&frame=1&auto=webp&crop=48:48,smart&s=4cea72b1b2c84517bc5073250ce63a64c86a1c0d"
+        "icon": "https://lh3.googleusercontent.com/d/1u6XyafUxFmDPWEnKT_FhQiHYu_JdQdi6"
     }
 ]

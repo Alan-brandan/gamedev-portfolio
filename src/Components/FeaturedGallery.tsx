@@ -64,7 +64,7 @@ const Indicator = styled.li<{ isSelected: boolean }>`
   background-color: ${props => (props.isSelected ? '#fff' : '#ccc')};
   box-shadow: ${props => (props.isSelected ? '0 0 5px #707070' : 'none')};
   opacity: ${props => (props.isSelected ? '1' : '0.7')};
-  transform: ${props => (props.isSelected ? 'scale(1.2)' : 'scale(1)')};
+  transform: ${props => (props.isSelected ? 'scale(1.3)' : 'scale(1)')};
 
   transition: 
     background-color 0.3s, 
