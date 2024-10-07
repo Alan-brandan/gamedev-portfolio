@@ -105,6 +105,22 @@ const Contributions = styled.div`
   }
 `;
 
+const ProjectLink = styled.a`
+  color: white;
+  text-decoration: none;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: large;
+  padding: 2px 6px;
+  border: 1px solid white;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+
 const PlatformSection = styled.div`
   display: flex;
   align-items: center;
@@ -182,9 +198,9 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
           {platform && (
             <PlatformSection>
               {platform.map((platformItem, index) => (
-                <a key={index} href={link && link[index]}>
+                <ProjectLink key={index} href={link && link[index]}>
                   {platformItem}
-                </a>
+                </ProjectLink>
               ))}
             </PlatformSection>
           )}

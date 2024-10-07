@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, Fragment } from "react";
 import styled, { css } from 'styled-components'
 
-
 const NavbarContainer = styled.div<{ hasscrolled: boolean }>`
   position: fixed;
   top: 0;
@@ -34,7 +33,8 @@ const NavbarSection = styled.div`
   a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-family: 'Nunito', sans-serif;
+        font-size: 1.2rem;
     padding: 8px 16px;
     border-radius: 5px;
     transition: color 0.3s ease, background-color 0.3s ease;
