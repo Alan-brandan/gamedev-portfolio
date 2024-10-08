@@ -1,24 +1,28 @@
 import React, { useState, useEffect, useRef, Fragment } from "react";
 import styled, { css } from 'styled-components'
 
-const NavbarContainer = styled.div<{ hasscrolled: boolean }>`
+const NavbarContainer = styled.div.attrs<{ hasscrolled: boolean }>(props => ({
+  hasscrolled: undefined,
+}))<{ hasscrolled: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
-  height: ${(props) => (props.hasscrolled ? '42px' : '57px')};
+  height: ${({ hasscrolled }) => (hasscrolled ? '42px' : '57px')};
   width: 100%;
   z-index: 900;
-  background-color: ${(props) => (props.hasscrolled ? '#2e2d2d' : '#252525')};
+  background-color: ${({ hasscrolled }) => (hasscrolled ? '#2e2d2d' : '#252525')};
   transition: height 0.3s ease, background-color 0.3s ease;
-  box-shadow: ${(props) => (props.hasscrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none')};
+  box-shadow: ${({ hasscrolled }) => (hasscrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none')};
 `;
 
-const NavbarElements = styled.div<{ hasscrolled: boolean }>`
+const NavbarElements = styled.div.attrs<{ hasscrolled: boolean }>(props => ({
+  hasscrolled: undefined, 
+}))<{ hasscrolled: boolean }>`
   display: flex;
   justify-content: space-between;
   width: 65%;
   transition: margin 0.4s ease-in-out;
-  margin: ${(props) => (props.hasscrolled ? '5px auto 0 auto' : '13px auto 0 auto')};
+  margin: ${({ hasscrolled }) => (hasscrolled ? '5px auto 0 auto' : '13px auto 0 auto')};
   align-items: center;
 `;
 
@@ -57,9 +61,7 @@ const Brand = styled.a`
 `;
 
 export const Navbar = () => {
-
-  const [scrolled, setScrolled] = useState<boolean>(false);
-
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {

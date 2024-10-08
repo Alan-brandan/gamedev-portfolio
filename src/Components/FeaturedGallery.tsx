@@ -52,19 +52,19 @@ const IndicatorsContainer = styled.ul`
   z-index: 2; 
 `;
 
-const Indicator = styled.li<{ isSelected: boolean }>`
+const Indicator = styled.li<{ isselected: boolean }>`
   width: 60px;
   height: 60px;
   display: inline-block;
   margin: 0 8px;
   list-style: none;
   cursor: pointer;
-  border: 2px solid ${props => (props.isSelected ? '#707070' : '#ccc')};
+  border: 2px solid ${props => (props.isselected ? '#707070' : '#ccc')};
   border-radius: 30%;
-  background-color: ${props => (props.isSelected ? '#fff' : '#ccc')};
-  box-shadow: ${props => (props.isSelected ? '0 0 5px #707070' : 'none')};
-  opacity: ${props => (props.isSelected ? '1' : '0.7')};
-  transform: ${props => (props.isSelected ? 'scale(1.3)' : 'scale(1)')};
+  background-color: ${props => (props.isselected ? '#fff' : '#ccc')};
+  box-shadow: ${props => (props.isselected ? '0 0 5px #707070' : 'none')};
+  opacity: ${props => (props.isselected ? '1' : '0.7')};
+  transform: ${props => (props.isselected ? 'scale(1.3)' : 'scale(1)')};
 
   transition: 
     background-color 0.3s, 
@@ -77,7 +77,7 @@ const Indicator = styled.li<{ isSelected: boolean }>`
     width: 100%;
     height: 100%;
     border-radius: 30%;
-    filter: grayscale(${props => (props.isSelected ? '0%' : '100%')});
+    filter: grayscale(${props => (props.isselected ? '0%' : '100%')});
     transition: filter 0.3s;
   }
 
@@ -172,8 +172,8 @@ export const FeaturedGallery: React.FC = () => {
                 {projects.map((project, index) => (
                   <Indicator
                     key={index}
-                    isSelected={selectedIndex === index}
-                    onClick={() => handleIndicatorClick(index)}
+                    isselected={selectedIndex === index ? 'true' : 'false'} 
+                                        onClick={() => handleIndicatorClick(index)}
                     role="button"
                     tabIndex={0}
                     aria-label={`Indicator ${index + 1}`}
