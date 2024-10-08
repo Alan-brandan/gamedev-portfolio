@@ -10,7 +10,7 @@
         "contributions": ["Designed over 40 Levels, each featuring unique challenges and themes.",
         "Conceptualized and implemented various game modes to enhance gameplay diversity:• Lights Off: Navigate levels in darkness while collecting energy to power a flashlight, implemented lighting mechanics and energy management systems to create a tense, immersive experience.•Endless Runner: an infinite mode by utilizing Unity Addressables to dynamically load and combine randomized segments from story levels, providing endless replayability.•Survivor: Survive waves of enemies, collecting temporary power-ups.•Speed Run: a time-limited speedrun event with a Firebase-backed leaderboard system to track and reward top player performances.",
         "Designed and implemented a persistent high-score system across all game modes, with Firebase cloud saves to track and compare scores.",
-        "Created dynamic visual effects using Unity’s Particle System",
+        "Created dynamic visual effects using Unity's Particle System",
         "Contributed to 2D art: designed Tilesets, Enemy sprites and UI assets",
         "Implemented a Character Upgrade System allowing players to enhance attributes (e.g., speed, invincibility) via in-game currency.",
         "Refactored and optimized core gameplay scripts to improve performance, reduce load times, and enhance game responsiveness.",

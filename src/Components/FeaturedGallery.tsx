@@ -116,16 +116,22 @@ export const FeaturedGallery: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
-    fetch('public/Data.json')
-      .then(response => response.json())
-      .then(data => {
+    fetch('/Data.json')
+    .then(response => response.text()) 
+    .then(text => {
+      console.log('Raw response:', text);
+      try {
+        const data = JSON.parse(text); 
         const transformedData: Project[] = data.map((item: any) => ({
           ...item,
           desc: item.desc
         }));
-        setProjects(transformedData);
-      })
-      .catch(error => console.error('Error fetching the projects:', error));
+        setProjects(transformedData); 
+      } catch (error) {
+        console.error('Error parsing JSON:', error); 
+      }
+    })
+    .catch(error => console.error('Error fetching the projects:', error));
   }, []);
 
   useEffect(() => {
