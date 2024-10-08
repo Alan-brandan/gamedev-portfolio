@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
-import styled, { css } from 'styled-components'
+import { useState, useEffect } from "react";
+import styled from 'styled-components'
 
-const NavbarContainer = styled.div.attrs<{ hasscrolled: boolean }>(props => ({
+const NavbarContainer = styled.div.attrs<{ hasscrolled: boolean }>(({
   hasscrolled: undefined,
 }))<{ hasscrolled: boolean }>`
   position: fixed;
@@ -15,7 +15,8 @@ const NavbarContainer = styled.div.attrs<{ hasscrolled: boolean }>(props => ({
   box-shadow: ${({ hasscrolled }) => (hasscrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none')};
 `;
 
-const NavbarElements = styled.div.attrs<{ hasscrolled: boolean }>(props => ({
+const NavbarElements = styled.div.attrs<{ hasscrolled: boolean }>
+( ({
   hasscrolled: undefined, 
 }))<{ hasscrolled: boolean }>`
   display: flex;

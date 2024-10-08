@@ -11,7 +11,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Fragment } from 'react'
 
 const AppContainer = styled.div`
   width: 100%;

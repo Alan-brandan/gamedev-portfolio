@@ -13,7 +13,7 @@ const Item = styled.div`
   overflow: hidden;
   height: 75vh;
 `;
-
+/*
 const Visuals = styled.div`
   flex: 0 0 45%;
   display: flex;
@@ -26,7 +26,7 @@ const Visuals = styled.div`
     height: auto;
     border-radius: 10px;
   }
-`;
+`;*/
 
 const ProjectData = styled.div`
   flex: 1;

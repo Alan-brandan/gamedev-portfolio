@@ -172,8 +172,8 @@ export const FeaturedGallery: React.FC = () => {
                 {projects.map((project, index) => (
                   <Indicator
                     key={index}
-                    isselected={selectedIndex === index ? 'true' : 'false'} 
-                                        onClick={() => handleIndicatorClick(index)}
+                    isselected={selectedIndex === index}
+                    onClick={() => handleIndicatorClick(index)}
                     role="button"
                     tabIndex={0}
                     aria-label={`Indicator ${index + 1}`}
