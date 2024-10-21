@@ -152,7 +152,7 @@ export const Home = () => {
           <a href="mailto:alanbrandan17@hotmail.com" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/?size=100&id=12623&format=png&color=000000" alt="" /></a>
           <a href="https://www.linkedin.com/in/alan-brandan/" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/?size=100&id=8808&format=png&color=000000" alt="" /></a>
           <a href="https://github.com/Alan-brandan" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000"  alt="" /></a>
-          <a href="https://drive.google.com/file/d/1_e-T_hCU-_I1H0dyPn0c0FUS1jPZpSQQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          <a href="https://drive.google.com/file/d/1kFCcqgTmDr3fHnzo-nVL_R7C6ZQ03p_7/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
             <ResumeButton role="button"><span >Resume ↓</span></ResumeButton>
           </a>
 
