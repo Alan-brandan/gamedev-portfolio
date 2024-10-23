@@ -41,7 +41,7 @@ export const FeaturedItemGallery: React.FC<ImageGalleryProps> = ({ images }) => 
       dynamicHeight={false} 
       infiniteLoop={true}
       autoPlay={true}
-      interval={5000}
+      interval={30000}
       emulateTouch={true} 
       thumbWidth={100} 
       showStatus={false}
