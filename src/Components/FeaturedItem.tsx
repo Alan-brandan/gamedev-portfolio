@@ -1,32 +1,26 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import { FeaturedItemGallery } from './FeaturedItemGallery';
 
 const Item = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-
   margin: 0 9%;
   padding: 2rem;
   overflow: hidden;
   height: 75vh;
-`;
-/*
-const Visuals = styled.div`
-  flex: 0 0 45%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 4rem 0 0 0;
 
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+  @media (max-width: 768px) {
+    flex-direction: column; 
+    height: auto; 
   }
-`;*/
+
+  @media (max-width: 480px) {
+    margin: 0 5%; 
+    padding: 1rem; 
+  }
+`;
 
 const ProjectData = styled.div`
   flex: 1;
@@ -36,18 +30,42 @@ const ProjectData = styled.div`
   margin: 0 1rem 0 2.7rem;
   overflow-y: auto;
   max-height: 100%;
+
+  @media (max-width: 768px) {
+    margin: 1rem 0 0; 
+  }
+
+  @media (max-width: 480px) {
+    margin: 0; 
+  }
 `;
 
 const ProjectTitle = styled.div`
-  h3{
+  h3 {
     font-size: 2.5rem;
     color: white;
+
+    @media (max-width: 768px) {
+      font-size: 2rem; 
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.8rem; 
+    }
   }
 
-  span{
+  span {
     font-size: 1.5rem;
     font-weight: 500;
     color: #b4b4b4;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem; 
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem; 
+    }
   }
 `;
 
@@ -59,22 +77,28 @@ const InfoSection = styled.div`
   p {
     font-weight: bold;
     margin: 0;
-
   }
 `;
 
 const Description = styled.div`
-  
-  p{
+  p {
     color: white;
     font-size: 1.1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem; 
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
   }
-  span{
+
+  span {
     color: white;
     font-weight: 550;
   }
 
-  /* Ensure this section scrolls if necessary */
   max-height: 50vh;
   overflow-y: auto;
 `;
@@ -95,6 +119,13 @@ const Contributions = styled.div`
     font-size: 1.1rem;
     margin: 5px 0 10px 0;
 
+    @media (max-width: 768px) {
+      font-size: 1rem; 
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem; 
+    }
   }
 
   .nested-ul {
@@ -114,12 +145,11 @@ const ProjectLink = styled.a`
   font-size: large;
   padding: 2px 6px;
   border: 1px solid white;
-  
+
   &:hover {
     text-decoration: underline;
   }
 `;
-
 
 const PlatformSection = styled.div`
   display: flex;
@@ -129,13 +159,13 @@ const PlatformSection = styled.div`
   p {
     font-weight: bold;
     margin-right: 0.5rem;
-
   }
 
   a {
     color: white;
     text-decoration: none;
     margin-right: 0.5rem;
+
     &:hover {
       text-decoration: underline;
     }
@@ -148,6 +178,8 @@ const RoleTag = styled.span`
   padding: 0.3rem 0.5rem;
   border-radius: 25px;
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem ;
+display: inline-block; 
 `;
 
 interface FeaturedItemProps {
@@ -187,7 +219,7 @@ export const FeaturedItem: React.FC<FeaturedItemProps> = ({
 
   return (
     <Item>
-     <FeaturedItemGallery images={images}/>
+      <FeaturedItemGallery images={images} />
       <ProjectData>
         <ProjectTitle>
           <h3>

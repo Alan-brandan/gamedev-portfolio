@@ -135,12 +135,14 @@ function App() {
                 <FeaturedGallery></FeaturedGallery>
               </>
             } />
+            {/*}
             <Route path="/about" element={
               <>
                 <About></About>
                 <Skills></Skills>
               </>
             } />
+             {*/}
           </Routes>
           <Footer></Footer>
         </Router>

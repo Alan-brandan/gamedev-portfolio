@@ -15,16 +15,16 @@
         "Implemented a Character Upgrade System allowing players to enhance attributes (e.g., speed, invincibility) via in-game currency.",
         "Refactored and optimized core gameplay scripts to improve performance, reduce load times, and enhance game responsiveness.",
     "Introduced new animations for the Menu UI to avoid static screens and make the interface more interactive."],
-        "images": ["https://lh3.googleusercontent.com/d/12ER685ExqcoOGDJKzXsRMFx-9hLDlXFq", "https://lh3.googleusercontent.com/d/1rQlBSQvzvheq6mntK5-CtEftgSCC-CMu"],
+        "images": ["https://lh3.googleusercontent.com/d/1UVIXP0PCAj56eAdcfxKdXNlqNHzRO6Eq"],
         "icon": "https://lh3.googleusercontent.com/d/1akFMtnrsYYpsunDK2fVXdMDCbH2NtEza",
         "background": "https://lh3.googleusercontent.com/d/1kcKhyuIld2inomJ9Wjh_AyF6iPSezJOB"
     },
     {
         "id": 2,
-        "title": "More Coming soon",
+        "title": "🚧 More Coming soon 🚧",
         "link": ["/"],
         "description": "",
-        "images": ["https://lh3.googleusercontent.com/d/18JbybVpC6EI4Ji7qcKSzr2Z2DkKlVRA9"],
+        "images": [],
         "icon": "https://lh3.googleusercontent.com/d/1u6XyafUxFmDPWEnKT_FhQiHYu_JdQdi6",
         "background": "https://i.pinimg.com/736x/cf/08/85/cf08856366ed08db61c4e3a32c9fbce6.jpg"
     }

@@ -15,6 +15,7 @@ const ProjectGallery = styled.div`
   overflow: hidden;
 `;
 
+
 const BackgroundLayer = styled.div<{ backgroundImage: string; fadeOut: boolean }>`
   position: absolute;
   top: 0;
@@ -49,7 +50,7 @@ const VignetteLayer = styled.div`
   background: radial-gradient(
     circle, 
     rgba(0, 0, 0, 0) 50%, 
-    rgba(0, 0, 0, 1) 100% /* Adjust the vignette intensity here */
+    rgba(0, 0, 0, 1) 100%
   );
   z-index: 2;
   pointer-events: none;
@@ -58,6 +59,15 @@ const VignetteLayer = styled.div`
 const ContentWrapper = styled.div`
   position: relative;
   z-index: 3;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const CarouselWrapper = styled.div`
@@ -121,6 +131,18 @@ const Indicator = styled.li<{ isselected: boolean }>`
       filter: grayscale(0%);
     }
   }
+
+  @media (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    margin: 0 6px;
+  }
+
+  @media (max-width: 480px) {
+    width: 35px;
+    height: 35px;
+    margin: 0 4px;
+  }
 `;
 
 interface Project {
@@ -141,7 +163,7 @@ export const FeaturedGallery: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [currentBackground, setCurrentBackground] = useState('');
-  const [fadeOut, setFadeOut] = useState(false); 
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     fetch('/Data.json')
@@ -176,18 +198,18 @@ export const FeaturedGallery: React.FC = () => {
     setTimeout(() => {
       setSelectedIndex(index);
       setCurrentBackground(projects[index]?.background || '');
-      setFadeOut(false); 
-    }, 400); 
+      setFadeOut(false);
+    }, 400);
   };
 
   return (
     <ProjectGallery>
+
       <BackgroundLayer backgroundImage={currentBackground} fadeOut={fadeOut} />
       <TintLayer />
       <VignetteLayer />
 
       <ContentWrapper>
-        <h2>Featured Projects</h2>
         <CarouselWrapper>
           {projects.length > 0 && (
             <>
