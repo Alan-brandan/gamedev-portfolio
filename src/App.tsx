@@ -2,8 +2,6 @@ import { Navbar } from './Components/Navbar'
 import { Home } from './Components/Home'
 import { Footer } from './Components/Footer'
 import { FeaturedGallery } from './Components/FeaturedGallery'
-import { About } from './Components/About'
-import { Skills } from './Components/Skills'
 
 import styled, { createGlobalStyle, css } from 'styled-components';
 import {
