@@ -2,6 +2,7 @@ import { Navbar } from './Components/Navbar'
 import { Home } from './Components/Home'
 import { Footer } from './Components/Footer'
 import { FeaturedGallery } from './Components/FeaturedGallery'
+import { Analytics } from "@vercel/analytics/react"
 
 import styled, { createGlobalStyle, css } from 'styled-components';
 import {
@@ -124,6 +125,7 @@ function App() {
     <>
       <GlobalStyles />
       <AppContainer>
+      <Analytics />
         <Router>
           <Navbar></Navbar>
           <Routes>
